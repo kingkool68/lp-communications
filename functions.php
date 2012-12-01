@@ -5,13 +5,9 @@ add_theme_support( 'post-thumbnails' );
 // custom menu support
 add_theme_support( 'menus' );
 if ( function_exists( 'register_nav_menus' ) ) {
-	register_nav_menus(
-		array(
-	  		  'header_menu' => 'Header Menu',
-	  		  'sidebar_menu' => 'Sidebar Menu',
-	  		  'footer_menu' => 'Footer Menu'
-	  	)
-	);
+	register_nav_menus( array(
+		'header_menu' => 'Header Menu'
+	));
 }
 	
 // Removes Trackbacks from the comment cout
@@ -33,8 +29,8 @@ function category_id_class($classes) {
 		$classes [] = 'cat-' . $category->cat_ID . '-id';
 		return $classes;
 }
-	add_filter('post_class', 'category_id_class');
-	add_filter('body_class', 'category_id_class');
+add_filter('post_class', 'category_id_class');
+add_filter('body_class', 'category_id_class');
 
 //Nice Search URL
 function txfx_nice_search() {
@@ -49,4 +45,11 @@ function replace_pluses_with_spaces($s) {
 	return str_replace('+', ' ', $s);
 }
 add_filter('get_search_query', 'replace_pluses_with_spaces');
+
+//Register CSS Files
+wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', '', false, 'all');
+wp_register_style('montserrat', 'http://fonts.googleapis.com/css?family=Montserrat', array('reset'), NULL, 'all');
+wp_register_style('main', get_template_directory_uri() . '/css/main.css', array('reset', 'montserrat'), false, 'all');
+
+include( 'widgets-and-sidebars.php' );
 ?>

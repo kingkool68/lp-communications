@@ -20,19 +20,54 @@
 <link rel="index" title="<?php bloginfo( 'name' ); ?>" href="<?php echo get_option('home'); ?>/" >
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" >
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'rss2_url' ); ?>" >
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/reset.css" >
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/main.css" >
-<?php wp_head(); ?>
+
+<?php
+wp_enqueue_style('main');
+wp_head(); ?>
 </head>
 <?php
-if(isset($_GET['grid'])) {
-	add_filter('body_class','add_grid_class');
-	function add_grid_class($classes, $class) {
+function add_grid_class($classes) {
 		$classes[] = 'grid';
 		return $classes;
-	}
+}
+if(isset($_GET['grid'])) {
+	add_filter('body_class','add_grid_class');
 }
 ?>
 <body <?php body_class(); ?>>
 <a id="top" href="#content">Skip to Content</a>
-<div id="header"></div>
+<div id="header" class="holder">
+	<a href="<?php echo get_site_url();?>"><img src="<?php echo get_template_directory_uri()?>/img/linda-purpura-communications-logo.png" alt="Linda Purpura Communications"></a>
+	<ul id="social-media">
+		<li class="email"><a href="#">Email</a></li>
+		<li class="facebook"><a href="#">Facebook</a></li>
+		<li class="twitter"><a href="#">Twitter</a></li>
+		<li class="google-plus"><a href="#">Google+</a></li>
+	</ul>
+	<?php 
+	$nav_name = 'header_menu';
+    if (
+		( $locations = get_nav_menu_locations() ) &&
+		isset( $locations[ $nav_name ] )
+	) {
+		$nav = wp_get_nav_menu_object( $locations[ $nav_name ] );
+		$nav_items = wp_get_nav_menu_items( $nav->term_id );
+		$nav_list = '<ul class="nav">';
+		
+		$halfway = ceil(count($nav_items)/2) + 1;
+		$num = 1;
+		$class = '';
+		foreach ( (array) $nav_items as $key => $nav_item ) {
+			if( $num == $halfway ) {
+				$nav_list .= '</ul><ul class="nav">';
+			}
+			$title = $nav_item->title;
+			$url = $nav_item->url;
+			$nav_list .= '<li class="' . $class . '"><a href="' . $url . '">' . $title . '</a></li>';
+			$num++;
+		}
+		$nav_list .= '</ul>';
+		echo $nav_list;
+	}
+	?>
+</div>

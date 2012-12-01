@@ -1,4 +1,4 @@
-<div id="sidebar">
+<div id="sidebar" role="complementary">
   <?php
 /* If this is a 404 page */
 	if (is_404()) {

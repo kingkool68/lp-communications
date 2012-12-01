@@ -1,5 +1,9 @@
+body {
+background-color:#f2f2f2;
+font-family: 'Montserrat', sans-serif;
+}
 body.grid {
-background-image: url(/wp-content/themes/rh_base/img/12_col.gif);
+background-image: url(/wp-content/themes/lp-communications/img/12_col.gif);
 background-repeat: repeat-y;
 background-position:center center;
 }
@@ -12,6 +16,12 @@ left:-999em;
 position:absolute;
 top:auto;
 }
+.hide-text,
+#social-media a {
+text-indent: 100%;
+white-space: nowrap;
+overflow: hidden;
+}
 #top:focus {
 position:static;
 font-size:1.5em;
@@ -22,3 +32,73 @@ color:#000;
 padding:2px 15px 5px;
 }
 
+.holder {
+width:960px;
+margin:0 auto;
+}
+
+#header img {
+padding-top:50px;
+}
+#social-media {
+background-color:#00aeef;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+float:right;
+padding-left:10px;
+width:190px;
+}
+#social-media li {
+float:left;
+list-style:none;
+}
+#social-media a {
+display:block;
+background-image:url(/wp-content/themes/lp-communications/img/social-media-sprite.png);
+background-repeat:no-repeat;
+background-position:left center;
+height:40px;
+width:46px;
+}
+#social-media .facebook a {
+background-position:32% center;
+}
+#social-media .twitter a {
+background-position:67% center;
+}
+#social-media .google-plus a {
+background-position:right center;
+}
+.nav {
+float:left;
+width:100px;
+}
+
+/* Footer */
+#footer {
+background-color:#333;
+font-family:Arial, Helvetica, sans-serif;
+clear:both;
+overflow:auto;
+height:100%;
+padding:22px 0 75px;
+}
+#footer,
+#footer a {
+color:#999;
+}
+#copyright {
+float:left;
+font-size:1.2em;
+width:55%;
+}
+#conditions {
+float:right;
+width:40%;
+font-size:1.1em;
+text-transform:uppercase;
+text-align:right;
+}
+#conditions a {
+padding-left:18px;
+}
