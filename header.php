@@ -35,9 +35,8 @@ if(isset($_GET['grid'])) {
 }
 ?>
 <body <?php body_class(); ?>>
-<div class="holder">
-<a id="top" href="#content">Skip to Content</a>
-<div id="header">
+<div id="header" class="holder">
+	<a id="top" href="#content">Skip to Content</a>
 	<a href="<?php echo get_site_url();?>"><img src="<?php echo get_template_directory_uri()?>/img/linda-purpura-communications-logo.png" alt="Linda Purpura Communications"></a>
 	<ul id="social-media">
 		<li class="email"><a href="#">Email</a></li>
@@ -73,3 +72,5 @@ if(isset($_GET['grid'])) {
 	}
 	?>
 </div>
+
+<?php lp_banner_image(); //Defined in functions.php ?>

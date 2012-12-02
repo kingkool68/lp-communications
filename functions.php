@@ -51,5 +51,51 @@ wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', '', 
 wp_register_style('montserrat', 'http://fonts.googleapis.com/css?family=Montserrat', array('reset'), NULL, 'all');
 wp_register_style('main', get_template_directory_uri() . '/css/main.css', array('reset', 'montserrat'), false, 'all');
 
+//Function to render the banner image in header.php
+function lp_banner_image() {
+	global $post;
+	if( !has_post_thumbnail() ) {
+		return;
+	}
+	$banner_id = get_post_thumbnail_id();
+	if( !$banner_id ) {
+		return;
+	}
+	$hex = get_post_meta($post->ID, 'banner_color', true);
+	if( substr($hex, 0) !== '#' ) {
+		$hex = '#' . $hex;
+	}
+	
+	$hex_attr = '';
+	if( $hex ) {
+		$hex_attr = 'style="background-color:' . $hex . '"';
+	}
+	?>
+	<div id="banner" <?php echo $hex_attr;?>>
+		<?php echo wp_get_attachment_image( intval($banner_id), 'full'); ?>
+	</div>
+	<?php
+}
+
+
+/* Custom Meta Boxes */
+if( is_admin() ):
+	require_once('metabox/metabox.class.php');
+
+	/* Banner Color */
+	$banner_color = new metabox('banner_color');
+	$banner_color->title = 'Banner Color';
+	$banner_color->context = 'side';
+	$banner_color->priority = 'low';
+	$banner_color->page = 'page';
+	$banner_color->is_single_value = true;
+	$banner_color->html = <<<HEREHTML
+<input name="banner_color" type="text" value="" style="width: auto;"></label>
+<p>Enter the hex color to match the leflt and right sides of the featured image.</p>
+HEREHTML;
+
+add_action('admin_menu', 'create_box');
+add_action('save_post', 'save_box');
+endif;
+
 include( 'widgets-and-sidebars.php' );
-?>

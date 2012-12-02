@@ -12,7 +12,7 @@ class Featured_Project extends WP_Widget {
 	*/
 	function Featured_Project(){
 		$widget_ops = array('description' => 'Featured Project widget for the homepage.' );
-		$this->WP_Widget('Featured_Project','Featured Project');
+		$this->WP_Widget('Featured_Project','Featured Project', $widget_ops);
 		$this->widget_count = 1;
 	}
 
@@ -92,10 +92,117 @@ class Featured_Project extends WP_Widget {
 }// END class
 
 
+class Service extends WP_Widget {
+	/**
+	* Declares the Services class.
+	*
+	*/
+	function Service(){
+		$widget_ops = array('description' => 'Services widget for the Services page.' );
+		$this->WP_Widget('Service','Service', $widget_ops);
+		$this->widget_count = 1;
+		$this->number_of_list_items = 3;
+	}
+
+	/**
+	* Displays the Widget
+	*
+	*/
+	function widget($args, $instance){
+		global $widget_count;
+		extract($args);
+		
+		$lis = '';
+		for( $i = 1; $i <= $this->number_of_list_items; $i++ ):
+			if( $instance['item' . $i] ) {
+				$lis .= '<li><span>' . $instance['item' . $i] . '</span></li>';
+			}
+		endfor;
+	
+		# Before the widget
+		$odd = '';
+		if( $this->widget_count % 2 ) {
+			$odd = ' odd';
+		}
+		echo preg_replace('/widget_count/i', 'position-' . $this->widget_count . $odd, $before_widget);
+		$instance['title'] = preg_replace('/\|/', '<br>', $instance['title']); 
+		?>
+		<h2><?php echo $instance['title']?></h2>
+		<?php if( $icon = $instance['icon'] ) { ?>
+			<img class="icon" alt="" src="<?php echo $icon ?>">
+		<?php } ?>
+		<div class="blurb">
+			<?php echo wpautop( $instance['blurb'] ); ?>
+		</div>
+		
+		<?php if( $lis ): ?>
+		<ul>
+			<?php echo $lis; ?>
+		</ul>
+		<?php endif; ?>
+		
+		<?php
+		# After the widget
+		echo $after_widget;
+		$this->widget_count++;
+	}
+
+	/**
+	* Saves the widgets settings.
+	*
+	*/
+	function update($new_instance, $old_instance){
+		$instance = $old_instance;
+		$instance['title'] = strip_tags(stripslashes($new_instance['title']));
+		$instance['blurb'] = $new_instance['blurb'];
+		$instance['icon'] = strip_tags(stripslashes($new_instance['icon']));
+		for( $i = 1; $i <= $this->number_of_list_items; $i++ ):
+			$instance['item' . $i] = strip_tags(stripslashes($new_instance['item' . $i]));
+		endfor;
+
+		return $instance;
+	}
+
+	/**
+	* Creates the edit form for the widget.
+	*
+	*/
+	function form($instance){
+	  
+		$title = htmlspecialchars($instance['title']);
+		$blurb = htmlspecialchars($instance['blurb']);
+		$icon = htmlspecialchars($instance['icon']);
+
+	?>
+	  
+		<p><label for="<?php echo $this->get_field_id('title');?>">Title</label>
+		<input id="<?php echo $this->get_field_id('title')?>" name="<?php echo $this->get_field_name('title');?>" class="widefat" type="text" value="<?php echo $title;?>"></p>
+	  
+		<p><label for="<?php echo $this->get_field_id('blurb');?>">Blurb</label>
+		<textarea id="<?php echo $this->get_field_id('blurb')?>" name="<?php echo $this->get_field_name('blurb');?>" class="widefat" cols="20" rows="5" type="text"><?php echo $blurb;?></textarea></p>
+		
+		<p><label for="<?php echo $this->get_field_id('icon');?>">Icon</label>
+		<input id="<?php echo $this->get_field_id('icon')?>" name="<?php echo $this->get_field_name('icon');?>" class="widefat" type="text" value="<?php echo $icon;?>"></p>
+		
+		<?php
+		for( $i = 1; $i <= $this->number_of_list_items; $i++ ):
+			$item = htmlspecialchars($instance['item' . $i]);
+			$item_name = 'item' . $i;
+		?>
+			<p><label for="<?php echo $this->get_field_id($item_name);?>">Item <?php echo $i ?></label> <input name="<?php echo $this->get_field_name($item_name) ;?>" class="widefat" type="text" value="<?php echo $item;?>" id="<?php echo $this->get_field_id($item_name);?>"></p>
+		<?php endfor; ?> 
+		
+	<?php
+	}
+
+}// END class
+
+
 
 /* Register the Widget Classes with WordPress */
 function register_our_widgets() {
 	register_widget('Featured_Project');
+	register_widget('Service');
 }
 add_action('widgets_init', 'register_our_widgets');
 
@@ -113,8 +220,8 @@ if ( function_exists('register_sidebar')) {
 		'name' => 'Services',
 		'before_widget' => '<div class="callout speech-bubble-bottom widget_count">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
 	));
 	register_sidebar(array(
 		'name' => 'Recommendations',
