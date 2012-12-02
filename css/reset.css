@@ -29,7 +29,6 @@ ol,
 ul {
 list-style: none;
 }
-/* tables still need 'cellspacing="0"' in the markup */
 table {
 border-collapse: separate;
 border-spacing: 0;
@@ -63,4 +62,16 @@ font-style:italic;
 pre {
 font-family:"Lucida Console", Monaco, monospace;
 }
-
+/* Should only be used as a last resort if clearing floats with overflow:hidden|auto doesn't work. */
+.clearfix {
+zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+content: ".";    
+display: block;    
+height: 0;    
+overflow: hidden;	
+zoom: 1;
+}
+.clearfix:after {clear: both;}

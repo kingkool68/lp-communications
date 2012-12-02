@@ -1,3 +1,5 @@
+</div>
+<!-- /holder -->
 <div id="footer" role="contentinfo">
 	<div class="holder">
 		<p id="copyright">&copy; Copyright <?php echo date('Y'); ?> Linda Purpura Communications, <acronym title="Limited liability company">LLC</acronym>. All rights reserved.</p>

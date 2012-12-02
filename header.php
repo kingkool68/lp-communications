@@ -35,8 +35,9 @@ if(isset($_GET['grid'])) {
 }
 ?>
 <body <?php body_class(); ?>>
+<div class="holder">
 <a id="top" href="#content">Skip to Content</a>
-<div id="header" class="holder">
+<div id="header">
 	<a href="<?php echo get_site_url();?>"><img src="<?php echo get_template_directory_uri()?>/img/linda-purpura-communications-logo.png" alt="Linda Purpura Communications"></a>
 	<ul id="social-media">
 		<li class="email"><a href="#">Email</a></li>
@@ -52,21 +53,22 @@ if(isset($_GET['grid'])) {
 	) {
 		$nav = wp_get_nav_menu_object( $locations[ $nav_name ] );
 		$nav_items = wp_get_nav_menu_items( $nav->term_id );
-		$nav_list = '<ul class="nav">';
+		$nav_list = '<div id="nav">';
+		$nav_list .= '<ul>';
 		
 		$halfway = ceil(count($nav_items)/2) + 1;
 		$num = 1;
 		$class = '';
 		foreach ( (array) $nav_items as $key => $nav_item ) {
 			if( $num == $halfway ) {
-				$nav_list .= '</ul><ul class="nav">';
+				$nav_list .= '</ul><ul>';
 			}
 			$title = $nav_item->title;
 			$url = $nav_item->url;
 			$nav_list .= '<li class="' . $class . '"><a href="' . $url . '">' . $title . '</a></li>';
 			$num++;
 		}
-		$nav_list .= '</ul>';
+		$nav_list .= '</ul></div>';
 		echo $nav_list;
 	}
 	?>
