@@ -46,7 +46,8 @@ margin:0 auto;
 #header {
 overflow:auto;
 height:100%;
-margin-bottom:50px;
+margin-bottom:48px;
+padding-bottom:2px;
 }
 #header img {
 padding-top:50px;
