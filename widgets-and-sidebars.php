@@ -198,11 +198,107 @@ class Service extends WP_Widget {
 }// END class
 
 
+class Recommendation extends WP_Widget {
+	/**
+	* Declares the Recommendation class.
+	*
+	*/
+	function Recommendation(){
+		$widget_ops = array('description' => 'Recommendation widget for the clients page.' );
+		$this->WP_Widget('Recommendation','Recommendation', $widget_ops);
+		$this->widget_count = 1;
+	}
+
+	/**
+	* Displays the Widget
+	*
+	*/
+	function widget($args, $instance){
+		global $widget_count;
+		extract($args);
+	
+		# Before the widget
+		echo preg_replace('/widget_count/i', 'position-' . $this->widget_count, $before_widget);
+		$instance['title'] = preg_replace('/\|/', '<br>', $instance['title']);
+		//$instance['blurb'] = '<span class="quote opening">&ldquo;</span>' . $instance['blurb'] . '<span class="quote closing">&rdquo;</span>';
+		?>
+		
+		<?php if( $instance['profile_icon'] ): ?>
+			<img class="author" src="<?php echo $instance['profile_icon'];?>" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>">
+		<?php endif; ?>
+		
+		<?php 
+		if( $instance['job_title'] ) {
+			$instance['title'] . ',';
+		}
+		$cite = '<strong>' . $instance['title'] . '</strong> ' . $instance['job_title'];
+		?>
+		
+		<div class="callout lifted speech-bubble-left">
+			<blockquote>
+				<span class="quote opening">&ldquo;</span>
+				<?php echo wpautop( $instance['blurb'] ); ?>
+				<span class="quote closing">&rdquo;</span>
+			</blockquote>
+			<cite><?php echo $cite; ?></cite>
+		</div>
+		
+		<?php
+		# After the widget
+		echo $after_widget;
+		$this->widget_count++;
+	}
+
+	/**
+	* Saves the widgets settings.
+	*
+	*/
+	function update($new_instance, $old_instance){
+		$instance = $old_instance;
+		$instance['title'] = strip_tags(stripslashes($new_instance['title']));
+		$instance['job_title'] = strip_tags(stripslashes($new_instance['job_title']));
+		$instance['blurb'] = $new_instance['blurb'];
+		$instance['profile_icon'] = strip_tags(stripslashes($new_instance['profile_icon']));
+
+		return $instance;
+	}
+
+	/**
+	* Creates the edit form for the widget.
+	*
+	*/
+	function form($instance){
+	  
+		$title = htmlspecialchars($instance['title']);
+		$job_title = htmlspecialchars($instance['job_title']);
+		$blurb = htmlspecialchars($instance['blurb']);
+		$profile_icon = htmlspecialchars($instance['profile_icon']);
+		  
+	?>
+	  
+		<p><label for="<?php echo $this->get_field_id('title');?>">Name</label>
+		<input id="<?php echo $this->get_field_id('title')?>" name="<?php echo $this->get_field_name('title');?>" class="widefat" type="text" value="<?php echo $title;?>"></p>
+	  	
+		<p><label for="<?php echo $this->get_field_id('job_title');?>">Job Title</label>
+		<input id="<?php echo $this->get_field_id('job_title')?>" name="<?php echo $this->get_field_name('job_title');?>" class="widefat" type="text" value="<?php echo $job_title;?>"></p>
+		
+		<p><label for="<?php echo $this->get_field_id('blurb');?>">Blurb</label>
+		<textarea id="<?php echo $this->get_field_id('blurb')?>" name="<?php echo $this->get_field_name('blurb');?>" class="widefat" cols="20" rows="5" type="text"><?php echo $blurb;?></textarea></p>
+		
+		<p><label for="<?php echo $this->get_field_id('profile_icon');?>">Profile Icon Link</label>
+		<input id="<?php echo $this->get_field_id('profile_icon')?>" name="<?php echo $this->get_field_name('profile_icon');?>" class="widefat" type="text" value="<?php echo $profile_icon;?>"></p>
+		
+	<?php
+	}
+
+}// END class
+
 
 /* Register the Widget Classes with WordPress */
 function register_our_widgets() {
 	register_widget('Featured_Project');
 	register_widget('Service');
+	register_widget('Recommendation');
 }
 add_action('widgets_init', 'register_our_widgets');
 
@@ -225,10 +321,10 @@ if ( function_exists('register_sidebar')) {
 	));
 	register_sidebar(array(
 		'name' => 'Recommendations',
-		'before_widget' => '<div id="%1$s" class="widget widget_count">',
+		'before_widget' => '<div class="widget widget_count">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
 	));
 }
 

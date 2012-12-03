@@ -26,7 +26,8 @@ function comment_count( $count ) {
 function category_id_class($classes) {
 	global $post;
 	foreach((get_the_category($post->ID)) as $category)
-		$classes [] = 'cat-' . $category->cat_ID . '-id';
+		$classes[] = 'cat-' . $category->cat_ID . '-id';
+		$classes[] = $post->post_type . '-' . $post->post_name;
 		return $classes;
 }
 add_filter('post_class', 'category_id_class');

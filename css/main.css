@@ -14,6 +14,9 @@ a:hover,
 a:focus {
 text-decoration:underline;
 }
+label {
+cursor:pointer;
+}
 .hide {
 display:none!important;
 }
@@ -51,6 +54,7 @@ padding-bottom:2px;
 }
 #header img {
 padding-top:50px;
+float:left;
 }
 #social-media {
 background-color:#00aeef;
@@ -116,7 +120,6 @@ display:block;
 /* Content */
 #content {
 clear:both;
-padding-bottom:100px;
 }
 #content h1 {
 color:#f04e23;
@@ -152,6 +155,41 @@ text-transform:uppercase;
 font-size:1.8em;
 line-height:1.11;
 }
+
+.lifted {
+-moz-border-radius:4px;
+border-radius:4px;
+}
+.lifted:before,
+.lifted:after {
+content: "";
+position: absolute;
+z-index: -2;
+bottom:15px;
+left:10px;
+width:50%;
+height:20%;
+max-width:300px;
+max-height:100px;
+-webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+   -moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+		box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+-webkit-transform:rotate(-3deg);
+   -moz-transform:rotate(-3deg);
+	-ms-transform:rotate(-3deg);
+	 -o-transform:rotate(-3deg);
+		transform:rotate(-3deg);
+}
+.lifted:after {
+right:10px;
+left:auto;
+-webkit-transform:rotate(3deg);
+   -moz-transform:rotate(3deg);
+	-ms-transform:rotate(3deg);
+	 -o-transform:rotate(3deg);
+		transform:rotate(3deg);
+}
+
 .speech-bubble-bottom:after {
 background-image: url("/wp-content/themes/lp-communications/img/speech-bubble-bottom.png");
 border: medium none;
@@ -225,6 +263,105 @@ line-height:2;
 }
 #services span {
 color:#555;
+}
+
+/* Reccomendations Widget */
+#recommendations {
+overflow:auto;
+height:100%;
+}
+#recommendations .widget {
+height: 100%;
+overflow: auto;
+padding-bottom: 25px;
+}
+#recommendations .author {
+float:left;
+padding:4px;
+background-color:#fff;
+border:1px solid #dfe3e7;
+}
+#recommendations .callout {
+float: left;
+margin-left:40px;
+width: 640px;
+padding:17px 21px;
+}
+#recommendations blockquote {
+font-family:Georgia, "Times New Roman", Times, serif;
+color:#555;
+font-style:italic;
+}
+#recommendations p {
+font-size:1.2em;
+line-height:1.5;
+}
+#recommendations .quote {
+color:#eff1f3;
+font-size:20em;
+/*float:left;*/
+}
+#recommendations cite {
+font-size:1.3em;
+line-height:1.53;
+}
+
+
+/* Contact Form */
+#contact-form {
+margin:0 auto;
+width:580px;
+padding-bottom:100px;
+}
+#contact-form label {
+font-size:1.4em;
+line-height:1.85;
+}
+#contact-form input,
+#contact-form textarea {
+padding:5px;
+width:100%;
+} 
+#contact-form #your-email {
+margin-bottom:25px;
+}
+#contact-form input.submit {
+float:right;
+width:150px;
+text-align:center;
+text-transform:uppercase;
+color:#fff;
+padding:9px 0;
+margin-top:10px;
+font-size:1.6em;
+
+border:none;
+-webkit-border-radius: 6px;
+border-radius: 6px;
+
+/* useful if you don't want a bg color from leaking outside the border: */
+-moz-background-clip: padding;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+
+background-color:#66B945;
+background-image: linear-gradient(bottom, #66B945 0%, #95C83D 100%);
+background-image: -o-linear-gradient(bottom, #66B945 0%, #95C83D 100%);
+background-image: -moz-linear-gradient(bottom, #66B945 0%, #95C83D 100%);
+background-image: -webkit-linear-gradient(bottom, #66B945 0%, #95C83D 100%);
+background-image: -ms-linear-gradient(bottom, #66B945 0%, #95C83D 100%);
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0, #66B945),
+	color-stop(1, #95C83D)
+);
+}
+.page-contact .sent {
+color: #00AEEF;
+font-size: 2.6em;
+padding: 0 1em 1.5em;
 }
 
 /* Footer */
