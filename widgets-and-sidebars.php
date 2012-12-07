@@ -228,12 +228,9 @@ class Recommendation extends WP_Widget {
 		<?php endif; ?>
 		
 		<?php 
-		if( $instance['job_title'] ) {
-			$instance['title'] . ',';
-		}
-		$cite = '<strong>' . $instance['title'] . '</strong> ' . $instance['job_title'];
+		$cite = '<strong>' . $instance['title'] . '</strong>, ' . $instance['job_title'];
 		?>
-		
+		<i class="left-triangle"></i>
 		<div class="callout lifted speech-bubble-left">
 			<blockquote>
 				<span class="quote opening">&ldquo;</span>

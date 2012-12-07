@@ -46,6 +46,9 @@ padding:2px 15px 5px;
 width:960px;
 margin:0 auto;
 }
+
+
+/* Header */
 #header {
 overflow:auto;
 height:100%;
@@ -274,6 +277,8 @@ height:100%;
 height: 100%;
 overflow: auto;
 padding-bottom: 25px;
+margin-bottom:40px;
+position:relative;
 }
 #recommendations .author {
 float:left;
@@ -285,7 +290,22 @@ border:1px solid #dfe3e7;
 float: left;
 margin-left:40px;
 width: 640px;
-padding:17px 21px;
+padding:17px 21px 0;
+}
+
+#recommendations i.left-triangle:after {
+background-image: url("/wp-content/themes/lp-communications/img/speech-bubble-left.png");
+background-repeat: no-repeat;
+border: medium none;
+content: " ";
+display: block;
+height: 24px;
+left: 119px;
+pointer-events: none;
+position: absolute;
+top: 34px;
+width: 25px;
+z-index: 99;
 }
 #recommendations blockquote {
 font-family:Georgia, "Times New Roman", Times, serif;
@@ -295,15 +315,39 @@ font-style:italic;
 #recommendations p {
 font-size:1.2em;
 line-height:1.5;
+float:left;
+width:85%;
 }
 #recommendations .quote {
-color:#eff1f3;
-font-size:20em;
-/*float:left;*/
+background-image: url("/wp-content/themes/lp-communications/img/quotes.png");
+background-repeat: no-repeat;
+background-position:-4px center;
+color: #EFF1F3;
+float:left;
+height: 40px;
+overflow: hidden;
+text-indent: 100%;
+white-space: nowrap;
+width: 40px;
+}
+#recommendations span.opening {
+margin-right:8px;
+}
+#recommendations span.closing {
+background-position: right center;
+clear: left;
+left: 92%;
+margin-left: 8px;
+position: relative;
+top: -20px;
 }
 #recommendations cite {
 font-size:1.3em;
 line-height:1.53;
+display:block;
+clear:both;
+position:relative;
+top:-17px;
 }
 
 
