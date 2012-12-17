@@ -99,4 +99,33 @@ add_action('admin_menu', 'create_box');
 add_action('save_post', 'save_box');
 endif;
 
+/* Secondary Featured Image */
+new MFI_Meta_Box( 'secondary_feat_img', 'Secondary Featured Image', '600', '150', 'page' );
+
+function get_secondary_feat_image( $post_id = NULL ) {
+	if( !$post_id ) {
+		global $post;
+		$post_id = $post->ID;
+	}
+	$meta_id = intval(get_post_meta($post_id, '_secondary_feat_img_thumbnail_id', true) );
+	
+	if( !$meta_id ) {
+		return false;
+	}
+	
+	$meta_data = wp_get_attachment_metadata( $meta_id );
+	$post_data = get_post( $meta_id );
+	
+	$wp_upload = wp_upload_dir();
+	$base_upload_dir = $wp_upload[baseurl];
+	$src = $base_upload_dir . '/' . $meta_data['file'];
+	
+	return (object) array(
+		'src' => $src,
+		'title' => $post_data->post_title,
+		'caption' => $post_data->post_excerpt
+	);
+	
+}
+
 include( 'widgets-and-sidebars.php' );
