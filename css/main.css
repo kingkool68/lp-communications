@@ -2,24 +2,24 @@ body {
 background-color:#f2f2f2;
 font-family:Montserrat, sans-serif;
 }
-.body.grid {
+body.grid {
 background-image:url(/wp-content/themes/lp-communications/img/12_col.gif);
 background-repeat:repeat-y;
 background-position:center center;
 }
-.a {
+a {
 text-decoration:none;
 }
-.a:hover,.a:focus {
+a:hover,
+a:focus {
 text-decoration:underline;
 }
-.label {
+label {
 cursor:pointer;
 }
 .hide {
 display:none!important;
 }
-
 #top,
 .hidden {
 left:-999em;
@@ -47,13 +47,11 @@ margin:0 auto;
 width:100%;
 .width:960px;
 }
-
 .horizontal {
 overflow:auto;
 height:100%;
 padding-left:0;
 }
-
 .horizontal li {
 float:left;
 list-style:none;
@@ -67,16 +65,13 @@ height:100%;
 margin-bottom:48px;
 padding-bottom:2px;
 }
-
 #header img {
 padding-top:50px;
 float:left;
 }
-
 #header img.type {
 padding-left:15px;
 }
-
 #social-media {
 background-color:#00aeef;
 border-bottom-left-radius:10px;
@@ -86,12 +81,10 @@ padding-left:10px;
 margin-bottom:20px;
 width:190px;
 }
-
 #social-media li {
 float:left;
 list-style:none;
 }
-
 #social-media a {
 display:block;
 background-image:url(/wp-content/themes/lp-communications/img/social-media-sprite.png);
@@ -100,15 +93,12 @@ background-position:left center;
 height:40px;
 width:46px;
 }
-
 #social-media .facebook a {
 background-position:32% center;
 }
-
 #social-media .twitter a {
 background-position:67% center;
 }
-
 #social-media .google-plus a {
 background-position:right center;
 }
@@ -118,22 +108,18 @@ clear:right;
 float:right;
 width:190px;
 }
-
 #nav ul {
 float:left;
 width:49%;
 }
-
 #nav li {
 font-size:1.4em;
 }
-
 #nav a {
 color:#f04e23;
 display:block;
 padding-bottom:12px;
 }
-
 #nav a:hover,
 #nav a:focus {
 color:#66b945;
@@ -143,7 +129,6 @@ color:#66b945;
 #banner {
 margin-bottom:50px;
 }
-
 #banner img {
 margin:0 auto;
 display:block;
@@ -158,26 +143,22 @@ height:auto;
 #content {
 clear:both;
 }
-
 #content h1 {
 color:#f04e23;
 font-size:3.4em;
 text-align:center;
 margin:50px 0 40px;
 }
-
 .intro {
 text-align:center;
 max-width:877px;
 width:100%;
 position:relative;
 }
-
 .intro p {
 font-size:1.8em;
 line-height:1.4;
 }
-
 .intro strong {
 color:#00aeef;
 text-transform:uppercase;
@@ -240,9 +221,9 @@ width:50%;
 height:20%;
 max-width:300px;
 max-height:100px;
--webkit-box-shadow:0 15px 10px rgba(0,0,0,0.7);
--moz-box-shadow:0 15px 10px rgba(0,0,0,0.7);
-box-shadow:0 15px 10px rgba(0,0,0,0.7);
+-webkit-box-shadow:0 15px 10px rgba(0,0,0,0.1);
+-moz-box-shadow:0 15px 10px rgba(0,0,0,0.1);
+box-shadow:0 15px 10px rgba(0,0,0,0.1);
 -webkit-transform:rotate(-3deg);
 -moz-transform:rotate(-3deg);
 -ms-transform:rotate(-3deg);
@@ -311,8 +292,8 @@ border:0;
 .rslides_tabs {
 position:absolute;
 right:1%;
-top:-4%;
-z-index:99;
+bottom:4%;
+z-index:600;
 }
 
 .rslides_tabs li {
@@ -411,7 +392,10 @@ margin:0 auto 20px;
 .page-services .column {
 float:left;
 margin-right:5%;
-width:43%;
+width:47%;
+}
+.page-services .right-column {
+width:36%;
 }
 
 .page-services h1 {
@@ -811,7 +795,8 @@ right:1%;
 top:28px;
 }
 
-.page-services .column {
+.page-services .column,
+.page-services .right-column {
 float:none;
 width:90%;
 }

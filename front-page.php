@@ -23,13 +23,13 @@ jQuery(document).ready(function($) {
 		timeout: 8000,          // Integer: Time between slide transitions, in milliseconds
 		pager: true,           // Boolean: Show pager, true or false
 		pause: true,           // Boolean: Pause on hover, true or false
-		pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+		pauseControls: true    // Boolean: Pause when hovering controls, true or false
 	});
 	
 	$('#featured-projects a').click(function(e) {
 		var vidID = this.href.match(/v=(\w+)/);
 		vidID = vidID[1];
-		if( vidID && $('window').width() > 480 ) {
+		if( vidID && $(window).width() > 480 ) {
 			e.preventDefault();
 			$.fancybox.open([{
 				type: 'iframe',
