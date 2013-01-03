@@ -37,12 +37,12 @@ if(isset($_GET['grid'])) {
 <body <?php body_class(); ?>>
 <div id="header" class="holder">
 	<a id="top" href="#content">Skip to Content</a>
-	<a href="<?php echo get_site_url();?>"><img src="<?php echo get_template_directory_uri()?>/img/linda-purpura-communications-logo.png" alt="Linda Purpura Communications"></a>
+	<a href="<?php echo get_site_url();?>" class="logo"><img src="<?php echo get_template_directory_uri()?>/img/logo-icon.png" alt="" class="icon"><img src="<?php echo get_template_directory_uri()?>/img/logo-type.png" alt="Linda Purpura Communications" class="type"></a>
 	<ul id="social-media">
-		<li class="email"><a href="#">Email</a></li>
-		<li class="facebook"><a href="#">Facebook</a></li>
-		<li class="twitter"><a href="#">Twitter</a></li>
-		<li class="google-plus"><a href="#">Google+</a></li>
+		<li class="email"><a href="/contact/">Email</a></li>
+		<li class="facebook"><a href="https://www.facebook.com/linda.purpura.5">Facebook</a></li>
+		<li class="twitter"><a href="https://twitter.com/MintedProse">Twitter</a></li>
+		<li class="google-plus"><a href="https://plus.google.com/108484133947608993377/">Google+</a></li>
 	</ul>
 	<?php 
 	$nav_name = 'header_menu';

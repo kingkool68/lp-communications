@@ -49,8 +49,13 @@ add_filter('get_search_query', 'replace_pluses_with_spaces');
 
 //Register CSS Files
 wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', '', false, 'all');
-wp_register_style('montserrat', 'http://fonts.googleapis.com/css?family=Montserrat', array('reset'), NULL, 'all');
+wp_register_style('montserrat', 'http://fonts.googleapis.com/css?family=Montserrat:400,700', array('reset'), NULL, 'all');
 wp_register_style('main', get_template_directory_uri() . '/css/main.css', array('reset', 'montserrat'), false, 'all');
+wp_register_style('fancybox', get_template_directory_uri() . '/css/fancybox.css', array('main'), false, 'all');
+
+//Register JS Files
+wp_register_script('responsiveslider', get_template_directory_uri() . '/js/responsiveslider.min.js', array('jquery'), NULL, true);
+wp_register_script('fancybox', get_template_directory_uri() . '/js/fancybox.min.js', array('jquery'), NULL, true);
 
 //Function to render the banner image in header.php
 function lp_banner_image() {
@@ -71,9 +76,10 @@ function lp_banner_image() {
 	if( $hex ) {
 		$hex_attr = 'style="background-color:' . $hex . '"';
 	}
+	$attr = array();
 	?>
 	<div id="banner" <?php echo $hex_attr;?>>
-		<?php echo wp_get_attachment_image( intval($banner_id), 'full'); ?>
+		<?php echo wp_get_attachment_image( intval($banner_id), 'full', false, $attr); ?>
 	</div>
 	<?php
 }

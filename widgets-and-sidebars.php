@@ -36,7 +36,12 @@ class Featured_Project extends WP_Widget {
 			<?php echo wpautop( $instance['blurb'] ); ?>
 		</div>
 		
-		<a href="<?php echo $instance['link']?>" class="icon"><img src="<?php echo $instance['link_icon']?>"></a>
+		<a href="<?php echo $instance['link']?>" class="thumbnail"><img src="<?php echo $instance['link_icon']?>"></a>
+		
+		<?php if( $instance['icon'] ): ?>
+		<a href="<?php echo $instance['link']?>" class="icon"><img src="<?php echo $instance['icon']?>"></a>
+		<?php endif; ?>
+		
 		<?php
 		# After the widget
 		echo $after_widget;
@@ -53,6 +58,7 @@ class Featured_Project extends WP_Widget {
 		$instance['blurb'] = $new_instance['blurb'];
 		$instance['link'] = strip_tags(stripslashes($new_instance['link']));
 		$instance['link_icon'] = strip_tags(stripslashes($new_instance['link_icon']));
+		$instance['icon'] = strip_tags(stripslashes($new_instance['icon']));
 		$instance['video'] = strip_tags(stripslashes($new_instance['video']));
 
 		return $instance;
@@ -67,7 +73,8 @@ class Featured_Project extends WP_Widget {
 		$title = htmlspecialchars($instance['title']);
 		$blurb = htmlspecialchars($instance['blurb']);
 		$link = htmlspecialchars($instance['link']);
-		$link_icon = htmlspecialchars($instance['link_icon']);
+		$thumbnail = htmlspecialchars($instance['link_icon']);
+		$icon = htmlspecialchars($instance['icon']);
 		$video = htmlspecialchars($instance['video']);
 		  
 	?>
@@ -81,8 +88,11 @@ class Featured_Project extends WP_Widget {
 		<p><label for="<?php echo $this->get_field_id('link');?>">Link</label>
 		<input id="<?php echo $this->get_field_id('link')?>" name="<?php echo $this->get_field_name('link');?>" class="widefat" type="text" value="<?php echo $link;?>"></p>
 		
-		<p><label for="<?php echo $this->get_field_id('link_icon');?>">Link Icon</label>
-		<input id="<?php echo $this->get_field_id('link_icon')?>" name="<?php echo $this->get_field_name('link_icon');?>" class="widefat" type="text" value="<?php echo $link_icon;?>"></p>
+		<p><label for="<?php echo $this->get_field_id('link_icon');?>">Thumbnail</label>
+		<input id="<?php echo $this->get_field_id('link_icon')?>" name="<?php echo $this->get_field_name('link_icon');?>" class="widefat" type="text" value="<?php echo $thumbnail;?>"></p>
+		
+		<p><label for="<?php echo $this->get_field_id('icon');?>">Icon</label>
+		<input id="<?php echo $this->get_field_id('icon')?>" name="<?php echo $this->get_field_name('icon');?>" class="widefat" type="text" value="<?php echo $icon;?>"></p>
 		
 		<p><label for="<?php echo $this->get_field_id('video');?>">Is this a video? <input type="checkbox" name="<?php echo $this->get_field_name('video') ;?>" value="true" <?php checked( $video, 'true' ); ?>></label></p>
 		
