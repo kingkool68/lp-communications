@@ -26,14 +26,14 @@ jQuery(document).ready(function($) {
 		pauseControls: true    // Boolean: Pause when hovering controls, true or false
 	});
 	
-	$('#featured-projects a').click(function(e) {
+	$('#featured-projects a, .intro a').click(function(e) {
 		var vidID = this.href.match(/v=(\w+)/);
 		vidID = vidID[1];
 		if( vidID && $(window).width() > 480 ) {
 			e.preventDefault();
 			$.fancybox.open([{
 				type: 'iframe',
-            	href : 'http://www.youtube.com/embed/' + vidID + '?autoplay=1',                
+            	href : 'http://www.youtube.com/embed/' + vidID + '?autoplay=1&vq=large',                
             	title : ''
         	}]);
 		}

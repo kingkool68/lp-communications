@@ -114,6 +114,7 @@ width:49%;
 }
 #nav li {
 font-size:1.4em;
+font-weight:bold;
 }
 #nav a {
 color:#f04e23;
@@ -221,9 +222,9 @@ width:50%;
 height:20%;
 max-width:300px;
 max-height:100px;
--webkit-box-shadow:0 15px 10px rgba(0,0,0,0.1);
--moz-box-shadow:0 15px 10px rgba(0,0,0,0.1);
-box-shadow:0 15px 10px rgba(0,0,0,0.1);
+-webkit-box-shadow:0 15px 10px #bbb;
+-moz-box-shadow:0 15px 10px #bbb;
+box-shadow:0 15px 10px #bbb;
 -webkit-transform:rotate(-3deg);
 -moz-transform:rotate(-3deg);
 -ms-transform:rotate(-3deg);
@@ -392,6 +393,7 @@ margin:0 auto 20px;
 .page-services .column {
 float:left;
 margin-right:5%;
+margin-bottom:45px;
 width:47%;
 }
 .page-services .right-column {
@@ -400,13 +402,17 @@ width:36%;
 
 .page-services h1 {
 clear:both;
+text-transform:uppercase;
+}
+.page-services .body h2 {
+width:90%;
 }
 
 /* Services Widget */
 #services .callout {
 padding:15px 25px;
 margin-bottom:65px;
-width:42%;
+width:43%;
 }
 
 #services .odd {
@@ -415,6 +421,7 @@ margin-right:20px;
 
 #services h2 {
 margin-bottom:30px;
+font-weight:bold;
 }
 
 #services .icon {
@@ -489,7 +496,7 @@ border:1px solid #dfe3e7;
 #recommendations .callout {
 float:left;
 margin-left:40px;
-width:640px;
+width:690px;
 padding:17px 21px 0;
 }
 
@@ -739,7 +746,7 @@ margin:0 auto;
 }
 }
 
-@media (max-width: 840px) {
+@media (max-width: 880px) {
 #recommendations i.left-triangle,
 #recommendationsileft-triangle:after {display:none;
 }
