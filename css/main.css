@@ -148,6 +148,7 @@ clear:both;
 color:#f04e23;
 font-size:3.4em;
 text-align:center;
+text-transform:uppercase;
 margin:50px 0 40px;
 }
 .intro {
@@ -371,6 +372,9 @@ filter:alpha(opacity=50);
 }
 
 /* Sectors Page */
+.page-sectors h1 {
+display:none;
+}
 .page-sectors .horizontal {
 padding-bottom:3px;
 }
@@ -394,15 +398,11 @@ margin:0 auto 20px;
 float:left;
 margin-right:5%;
 margin-bottom:45px;
-width:47%;
-}
-.page-services .right-column {
-width:36%;
+width:45%;
 }
 
 .page-services h1 {
 clear:both;
-text-transform:uppercase;
 }
 .page-services .body h2 {
 width:90%;
@@ -412,6 +412,7 @@ width:90%;
 #services .callout {
 padding:15px 25px;
 margin-bottom:65px;
+min-height:165px;
 width:43%;
 }
 
@@ -644,6 +645,8 @@ margin-bottom:25px;
 #contact-form input.submit {
 float:right;
 width:150px;
+position:relative;
+right:-12px;
 text-align:center;
 text-transform:uppercase;
 color:#fff;
@@ -655,18 +658,25 @@ border:none;
 -webkit-border-radius:6px;
 -moz-border-radius:6px;
 border-radius:6px;
-/* useful if you don't want a bg color from leaking outside the border: */
 
--moz-background-clip:padding;
--webkit-background-clip:padding-box;
-background-clip:padding-box;
+/* useful if you don't want a bg color from leaking outside the border: */
+-moz-background-clip: padding;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+
 background-color:#66B945;
-background-image:linear-gradient(bottom,#66B9450%,#95C83D100%);
-background-image:0;
-background-image:0;
-background-image:0;
-background-image:0;
-background-image:0;
+background-image: linear-gradient(bottom, #66B945 0%, #95C83D 100%);
+background-image: -o-linear-gradient(bottom, #66B945 0%, #95C83D 100%);
+background-image: -moz-linear-gradient(bottom, #66B945 0%, #95C83D 100%);
+background-image: -webkit-linear-gradient(bottom, #66B945 0%, #95C83D 100%);
+background-image: -ms-linear-gradient(bottom, #66B945 0%, #95C83D 100%);
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0, #66B945),
+	color-stop(1, #95C83D)
+);
 }
 
 .page-contact .sent {
@@ -674,7 +684,9 @@ color:#00AEEF;
 font-size:2.6em;
 padding:0 1em 1.5em;
 }
-
+.page-contact h2 {
+margin-bottom:20px;
+}
 .page-contact p {
 text-align:center;
 font-size:1.6em;
@@ -731,122 +743,122 @@ padding-left:18px;
 
 /* Media Queries */
 @media (max-width: 960px) {
-#headerimgiconpadding-left:5%;
-}
+	#header img.icon {
+		padding-left:5%;
+	}
+	#featured-projects .callout {
+	width:90%;
+	float:none;
+	margin:0 auto 150px;
+	}
 
-#featured-projects .callout {
-width:90%;
-float:none;
-margin:0 auto 150px;
-}
-
-.body {
-width:90%;
-margin:0 auto;
-}
+	.body {
+	width:90%;
+	margin:0 auto;
+	}
 }
 
 @media (max-width: 880px) {
-#recommendations i.left-triangle,
-#recommendationsileft-triangle:after {display:none;
-}
-
-#recommendations .author {
-float:none;
-margin:0 auto 15px;
-display:block;
-}
-
-#recommendations .callout {
-margin:0 auto;
-width:90%;
-float:none;
-}
+	#recommendations i.left-triangle,
+	#recommendationsileft-triangle:after {display:none;
+	}
+	
+	#recommendations .author {
+	float:none;
+	margin:0 auto 15px;
+	display:block;
+	}
+	
+	#recommendations .callout {
+	margin:0 auto;
+	width:90%;
+	float:none;
+	}
 }
 
 @media (max-width: 759px) {
-#services .callout{
-width:85%;
-margin:0 auto 110px;
-float:none;
-}
-
-.page-sectors .horizontal li {
-width:50%;
-}
+	#services .callout{
+	width:85%;
+	margin:0 auto 110px;
+	float:none;
+	}
+	
+	.page-sectors .horizontal li {
+	width:50%;
+	}
 }
 
 @media (max-width: 540px) {
-.holder {
+	.holder {
+		width:90%;
+	}
+	
+	#nav {
 	width:90%;
-}
-
-#nav {
-width:90%;
-float:none;
-margin:0 auto;
-text-align:center;
-}
-
-#nav ul {
-padding-top:20px;
-}
-
-#social-media {
-position:absolute;
-top:0;
-right:1%;
-}
-
-.admin-bar #social-media {
-top:28px;
-}
-
-.page-services .column,
-.page-services .right-column {
-float:none;
-width:90%;
-}
+	float:none;
+	margin:0 auto;
+	text-align:center;
+	}
+	
+	#nav ul {
+	padding-top:20px;
+	}
+	
+	#social-media {
+	position:absolute;
+	top:0;
+	right:1%;
+	}
+	
+	.admin-bar #social-media {
+	top:28px;
+	}
+	
+	.page-services .column,
+	.page-services .right-column {
+	float:none;
+	width:90%;
+	}
 }
 
 @media (max-width: 480px) {
-#services .callout {
-	width:75%;
-}
-
-#services .callout h2 {
-padding-right:130px;
-}
-
-#recommendations .callout {
-padding-left:10px;
-padding-right:10px;
-}
-
-#recommendations .quote {
-display:none;
-}
-
-#recommendations cite {
-position:static;
-padding-top:17px;
-padding-bottom:8px;
-}
+	#services .callout {
+		width:75%;
+	}
+	
+	#services .callout h2 {
+	padding-right:130px;
+	}
+	
+	#recommendations .callout {
+	padding-left:10px;
+	padding-right:10px;
+	}
+	
+	#recommendations .quote {
+	display:none;
+	}
+	
+	#recommendations cite {
+	position:static;
+	padding-top:17px;
+	padding-bottom:8px;
+	}
 }
 
 @media (max-width: 420px) {
-#header img {
-padding:0;
-margin:0 auto;
-display:block;
-float:none;
-}
-
-#header img.icon {
-padding-top:60px;
-}
-
-#header img.type {
-padding-left:0;
-}
+	#header img {
+	padding:0;
+	margin:0 auto;
+	display:block;
+	float:none;
+	}
+	
+	#header img.icon {
+	padding-top:60px;
+	}
+	
+	#header img.type {
+	padding-left:0;
+	}
 }
