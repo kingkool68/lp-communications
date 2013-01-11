@@ -114,7 +114,7 @@ width:49%;
 }
 #nav li {
 font-size:1.4em;
-font-weight:bold;
+text-transform:uppercase;
 }
 #nav a {
 color:#f04e23;
@@ -329,6 +329,7 @@ background-color:#f04e23;
 #featured-projects .callout {
 width:268px;
 padding:0 16px 85px;
+min-height:210px;
 }
 
 #featured-projects .position-2 {
@@ -347,6 +348,7 @@ color:#000;
 #featured-projects p {
 font-size:1.3em;
 line-height:1.38;
+color:#555;
 }
 
 #featured-projects .thumbnail {
@@ -361,7 +363,7 @@ box-shadow:1px 3px 12px #666;
 #featured-projects .icon {
 position:absolute;
 top:-11%;
-right:1%;
+right:7%;
 opacity:0.5;
 /* IE 8 */
 
@@ -428,7 +430,7 @@ font-weight:bold;
 #services .icon {
 position:absolute;
 right:27px;
-bottom:72%;
+bottom:74%;
 opacity:0.5;
 /* IE 8 */
 
@@ -441,7 +443,7 @@ filter:alpha(opacity=50);
 #services .blurb p {
 font-weight:bold;
 font-size:1.4em;
-line-height:1.71;
+line-height:1.45;
 color:#555;
 }
 
@@ -453,7 +455,7 @@ padding-left:15px;
 color:#85163e;
 list-style:disc;
 font-size:1.2em;
-line-height:2;
+line-height:1.55;
 }
 
 #services span {
@@ -691,6 +693,7 @@ margin-bottom:20px;
 text-align:center;
 font-size:1.6em;
 line-height:2;
+color:#555;
 }
 
 .page-contact a {
