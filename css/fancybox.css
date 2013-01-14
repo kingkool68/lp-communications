@@ -39,9 +39,9 @@
 }
 
 .fancybox-opened .fancybox-skin {
-	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	   -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+	   -moz-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+	        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
 }
 
 .fancybox-outer, .fancybox-inner {
@@ -175,7 +175,7 @@
 	overflow: hidden;
 	display: none;
 	z-index: 8010;
-	background: url('/wp-content/themes/lp-communications/img/fancybox/fancybox_overlay.png');
+	/*background: url('/wp-content/themes/lp-communications/img/fancybox/fancybox_overlay.png');*/
 }
 
 .fancybox-overlay-fixed {

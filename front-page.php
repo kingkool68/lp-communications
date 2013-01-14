@@ -33,9 +33,16 @@ jQuery(document).ready(function($) {
 			e.preventDefault();
 			$.fancybox.open([{
 				type: 'iframe',
-            	href : 'http://www.youtube.com/embed/' + vidID + '?autoplay=1&vq=large',                
-            	title : ''
-        	}]);
+            	href : 'http://www.youtube.com/embed/' + vidID + '?autoplay=1&vq=large',                padding: [48, 54, 43, 54],
+            	title : '',
+			 	helpers : {
+        			overlay : {
+            			css : {
+                			'background' : ''
+            			}
+        			}
+    			}
+			}]);
 		}
 	});
 });

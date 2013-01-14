@@ -228,7 +228,11 @@ class Recommendation extends WP_Widget {
 		extract($args);
 	
 		# Before the widget
+		if( !$instance['profile_icon'] ):
+			$before_widget = preg_replace('/widget_count/i', 'widget_count no-profile-icon', $before_widget);
+		endif;
 		echo preg_replace('/widget_count/i', 'position-' . $this->widget_count, $before_widget);
+		
 		$instance['title'] = preg_replace('/\|/', '<br>', $instance['title']);
 		//$instance['blurb'] = '<span class="quote opening">&ldquo;</span>' . $instance['blurb'] . '<span class="quote closing">&rdquo;</span>';
 		?>
@@ -240,7 +244,10 @@ class Recommendation extends WP_Widget {
 		<?php 
 		$cite = '<strong>' . $instance['title'] . '</strong>, ' . $instance['job_title'];
 		?>
+		
+		<?php if( $instance['profile_icon'] ): ?>
 		<i class="left-triangle"></i>
+		<?php endif; ?>
 		<div class="callout lifted speech-bubble-left">
 			<blockquote>
 				<span class="quote opening">&ldquo;</span>
