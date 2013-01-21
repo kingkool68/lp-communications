@@ -115,6 +115,7 @@ width:49%;
 #nav li {
 font-size:1.4em;
 text-transform:uppercase;
+font-weight:bold;
 }
 #nav a {
 color:#f04e23;
@@ -360,7 +361,7 @@ color:#555;
 #featured-projects .thumbnail {
 position:absolute;
 right:6%;
-top:75%;
+bottom:-18%;
 -webkit-box-shadow:1px 3px 12px #666;
 -moz-box-shadow:1px 3px 12px #666;
 box-shadow:1px 3px 12px #666;
@@ -423,7 +424,7 @@ padding-top:10px;
 #services .callout {
 padding:15px 25px;
 margin-bottom:65px;
-min-height:165px;
+min-height:135px;
 width:43%;
 }
 
@@ -439,7 +440,7 @@ font-weight:bold;
 #services .icon {
 position:absolute;
 right:27px;
-bottom:74%;
+bottom:71%;
 opacity:0.5;
 /* IE 8 */
 
@@ -449,6 +450,10 @@ opacity:0.5;
 filter:alpha(opacity=50);
 }
 
+#services .position-5 .icon,
+#services .position-6 .icon {
+bottom:81%;
+}
 #services .blurb p {
 font-weight:bold;
 font-size:1.4em;
@@ -655,6 +660,9 @@ width:100%;
 -moz-border-radius: 10px;
 border-radius: 10px;
 }
+#contact-form textarea {
+overflow:auto;
+}
 
 #contact-form #your-email {
 margin-bottom:25px;
@@ -708,7 +716,7 @@ margin-bottom:20px;
 .page-contact p {
 text-align:center;
 font-size:1.6em;
-line-height:2;
+line-height:1.75;
 color:#555;
 }
 
