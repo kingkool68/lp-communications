@@ -21,9 +21,11 @@ jQuery(document).ready(function($) {
 		auto: true,             // Boolean: Animate automatically, true or false
 		speed: 1000,            // Integer: Speed of the transition, in milliseconds
 		timeout: 8000,          // Integer: Time between slide transitions, in milliseconds
-		pager: true,           // Boolean: Show pager, true or false
+		pager: false,           // Boolean: Show pager, true or false
 		pause: true,           // Boolean: Pause on hover, true or false
-		pauseControls: true    // Boolean: Pause when hovering controls, true or false
+		pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+		//nav: false,             // Boolean: Show navigation, true or false
+  		random: true          // Boolean: Randomize the order of the slides, true or false
 	});
 	
 	$('#featured-projects a, .intro a').click(function(e) {
@@ -33,7 +35,7 @@ jQuery(document).ready(function($) {
 			e.preventDefault();
 			$.fancybox.open([{
 				type: 'iframe',
-            	href : 'http://www.youtube.com/embed/' + vidID + '?autoplay=1&vq=large',                padding: [48, 54, 43, 54],
+            	href : 'http://www.youtube.com/embed/' + vidID + '?autoplay=1&vq=large&rel=0',                padding: [48, 54, 43, 54],
             	title : '',
 			 	helpers : {
         			overlay : {
