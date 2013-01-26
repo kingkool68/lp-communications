@@ -19,13 +19,19 @@ function lp_send_mail() {
 	return wp_mail( $to, $subject, $message, $headers );
 }
 
+function add_email_body_class( $class ) {
+	$class[] = 'email-sent';
+	return $class;
+}
+
 
 if( isset( $_GET['sent'] ) ) {
 	$sent = lp_send_mail();
 	if( $sent === TRUE ) {
-		$sent_message = 'Your message has been sent.';
+		$sent_message = 'Thank you. Your message has been sent.';
 	}
-} 
+	add_filter('body_class', 'add_email_body_class'); 
+}
 
 get_header();
 ?>

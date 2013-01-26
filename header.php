@@ -57,11 +57,18 @@ if(isset($_GET['grid'])) {
 		
 		$halfway = ceil(count($nav_items)/2) + 1;
 		$num = 1;
-		$class = '';
+
 		foreach ( (array) $nav_items as $key => $nav_item ) {
+			$class = '';
 			if( $num == $halfway ) {
 				$nav_list .= '</ul><ul>';
 			}
+			
+			$slug = basename( $nav_item->url );
+			if( $post->post_name == $slug ) {
+				$class = 'active';
+			}
+			
 			$title = $nav_item->title;
 			$url = $nav_item->url;
 			$nav_list .= '<li class="' . $class . '"><a href="' . $url . '">' . $title . '</a></li>';
