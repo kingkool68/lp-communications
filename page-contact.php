@@ -9,7 +9,7 @@ function lp_send_mail() {
 		return false;
 	}
 	
-	$to = 'info@russellheimlich.com';
+	$to = 'info@lp-communications.com, linda@mintedprose.com';
 	$subject = 'Message from your contact form';
 	$from = sanitize_email( $_POST['your-email'] );
 	$message = wpautop( sanitize_text_field( $_POST['message'] ) );
