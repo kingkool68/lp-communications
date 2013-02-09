@@ -17,6 +17,7 @@
 		} ?>
 </title>
 <meta charset="<?php bloginfo( 'charset' ); ?>" >
+<meta name="viewport" content="width=device-width">
 <link rel="index" title="<?php bloginfo( 'name' ); ?>" href="<?php echo get_option('home'); ?>/" >
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" >
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'rss2_url' ); ?>" >
@@ -40,7 +41,7 @@ if(isset($_GET['grid'])) {
 	<a href="<?php echo get_site_url();?>" class="logo"><img src="<?php echo get_template_directory_uri()?>/img/logo-icon.png" alt="" class="icon"><img src="<?php echo get_template_directory_uri()?>/img/logo-type.png" alt="Linda Purpura Communications" class="type"></a>
 	<ul id="social-media">
 		<li class="email"><a href="/contact/">Email</a></li>
-		<li class="facebook"><a href="https://www.facebook.com/linda.purpura.5">Facebook</a></li>
+		<li class="facebook"><a href="https://www.facebook.com/pages/Linda-Purpura-Communications-LLC/470387933027211">Facebook</a></li>
 		<li class="twitter"><a href="https://twitter.com/MintedProse">Twitter</a></li>
 		<li class="google-plus"><a href="https://plus.google.com/108484133947608993377/">Google+</a></li>
 	</ul>
